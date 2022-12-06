@@ -39,10 +39,15 @@ jobs:
         coverage run --source=info,search --omit=*/migrations/* ./manage.py test
         coverage report
         coverage html
-        
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install coverage
+    - name: Run Tests
+      run: |
+        coverage run --source=grievancesystemlatest/grievance ./grievancesystemlatest/manage.py test
+        coverage report
+        coverage html
     - name: Upload cov
       uses: codecov/codecov-action@v2
-      with:
-        token: 3ad2c88d-e733-429b-962e-bc9db2760b01
-    - name: lint with flake
-      run: flake8 --ignore=E501
