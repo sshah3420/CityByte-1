@@ -46,7 +46,7 @@ jobs:
         pip install coverage
     - name: Run Tests
       run: |
-        coverage run --source=grievancesystemlatest/grievance ./grievancesystemlatest/manage.py test
+        coverage run
         coverage report
         coverage html
     - name: Upload cov
