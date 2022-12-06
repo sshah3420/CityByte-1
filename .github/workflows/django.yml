@@ -36,7 +36,7 @@ jobs:
         FOURSQUARE_API_KEY: ${{ secrets.FOURSQUARE_API_KEY }}
       run: |
         python manage.py test
-        coverage run --source=info,search --omit=*/migrations/* ./manage.py test
+        coverage run
         coverage report
         coverage html
     - name: Install Dependencies
